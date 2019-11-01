@@ -1,0 +1,19 @@
+<h1>Listing Seas</h1>
+<%= link_to 'New sea', new_sea_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @seas.each do |sea| %>
+    <tr>
+      <td><%= sea.name %></td>
+      <td><%= link_to 'Show', sea_path(sea) %></td>
+      <td><%= link_to 'Edit', edit_sea_path(sea) %></td>
+      <td><%= link_to 'Destroy', sea_path(sea),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

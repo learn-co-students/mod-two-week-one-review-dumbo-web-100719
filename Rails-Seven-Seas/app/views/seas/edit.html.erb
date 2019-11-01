@@ -1,4 +1,22 @@
-<%= form_for @sea do |f| %>
+
+<h1>Edit Sea</h1>
+ 
+<%= form_with(model: @sea, local: true) do |f| %>
+
+<% if @sea.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@sea.errors.count, "error") %> prohibited
+        this sea from being saved:
+      </h2>
+      <ul>
+        <% @sea.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <%= f.label :name %>
   <%= f.text_field :name %>
 
